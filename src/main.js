@@ -9,6 +9,9 @@ import locale from 'element-ui/lib/locale/lang/en'
 import VueLazyload from 'vue-lazyload'
 import router from './router'
 
+// vuex
+import store from './store'
+
 Vue.use(ElementUI, { locale })
 
 Vue.use(VueLazyload, {
@@ -21,6 +24,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App
