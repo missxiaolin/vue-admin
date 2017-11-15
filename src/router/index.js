@@ -17,7 +17,14 @@ export default new Router({
     }, {
       path: '/',
       component: layout,
-      name: '首页'
+      redirect: '/dashboard',
+      name: '首页',
+      children: [
+        {
+          path: 'dashboard',
+          component: _import('dashboard/index')
+        }
+      ]
     }
   ]
 })

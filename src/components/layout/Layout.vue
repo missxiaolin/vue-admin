@@ -1,18 +1,25 @@
 <template>
   <div class="app-wrapper">
+    <sidebar class="sidebar-container"></sidebar>
 		<div class="main-container">
       <navbar></navbar>
+      <app-main></app-main>
 		</div>
 	</div>
 </template>
 
 
 <script>
-import Navbar from "components/layout/Navbar";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar"
+import AppMain from "./AppMain"
+
 export default {
   name: "layout",
   components: {
-    Navbar
+    Navbar,
+    Sidebar,
+    AppMain
   },
   computed: {}
 };
