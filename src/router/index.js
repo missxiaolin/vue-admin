@@ -25,6 +25,6 @@ export const asyncRouterMap = [
       }
     ]
   }
-];
+]
 
 export default new Router({mode: 'history', routes: asyncRouterMap})

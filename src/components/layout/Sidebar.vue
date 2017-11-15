@@ -5,9 +5,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import SidebarItem from "./SidebarItem";
-import {asyncRouterMap} from 'router'
+import { asyncRouterMap } from "router";
 
 export default {
   data() {
@@ -15,18 +14,14 @@ export default {
       permission_routers: []
     };
   },
-  created(){
+  created() {
     let that = this;
-    console.log(asyncRouterMap)
-    setTimeout(function(){
-      that.permission_routers = asyncRouterMap;
-    },1000)
+    that.permission_routers = asyncRouterMap;
   },
   components: {
     SidebarItem
   },
   computed: {
-    ...mapGetters([]),
     isCollapse() {}
   }
 };
