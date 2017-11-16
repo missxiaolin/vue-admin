@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="{hideSidebar:opened}">
     <sidebar class="sidebar-container"></sidebar>
 		<div class="main-container">
       <navbar></navbar>
@@ -10,9 +10,10 @@
 
 
 <script>
+import { mapGetters } from "vuex";
 import Navbar from "./Navbar";
-import Sidebar from "./Sidebar"
-import AppMain from "./AppMain"
+import Sidebar from "./Sidebar";
+import AppMain from "./AppMain";
 
 export default {
   name: "layout",
@@ -21,7 +22,12 @@ export default {
     Sidebar,
     AppMain
   },
-  computed: {}
+  computed: {
+    ...mapGetters(["opened"]),
+    isCollapse() {
+      return this.opened;
+    }
+  }
 };
 </script>
 

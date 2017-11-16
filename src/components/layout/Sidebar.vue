@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import SidebarItem from "./SidebarItem";
 import { asyncRouterMap } from "router";
 
@@ -22,7 +23,10 @@ export default {
     SidebarItem
   },
   computed: {
-    isCollapse() {}
+    ...mapGetters(["opened"]),
+    isCollapse() {
+      return !this.opened
+    }
   }
 };
 </script>
