@@ -4,15 +4,13 @@
 
       <router-link v-if="!item.hidden&&item.noDropdown&&item.children.length>0" :to="item.path+'/'+item.children[0].path">
         <el-menu-item :index="item.path+'/'+item.children[0].path" class='submenu-title-noDropdown'>
-          <i class="iconfont" :class="item.icon" v-if='item.icon'></i>
-          <span>{{item.children[0].name}}</span>
+          <i class="iconfont" :class="item.icon" v-if='item.icon'></i><span>{{item.children[0].name}}</span>
         </el-menu-item>
       </router-link>
 
       <el-submenu :index="item.name" v-if="!item.noDropdown&&!item.hidden">
         <template slot="title">
-          <i class="iconfont" :class="item.icon" v-if='item.icon'></i>
-          <span>{{item.name}}</span>
+          <i class="iconfont" :class="item.icon" v-if='item.icon'></i><span>{{item.name}}</span>
         </template>
         <template v-for="child in item.children" v-if='!child.hidden'>
 
@@ -20,8 +18,7 @@
 
           <router-link v-else :to="item.path+'/'+child.path">
             <el-menu-item :index="item.path+'/'+child.path">
-              <i v-if='child.icon' :class="item.icon" class="iconfont"></i>
-              <span>{{child.name}}</span>
+              <i v-if='child.icon' :class="item.icon" class="iconfont"></i><span>{{child.name}}</span>
             </el-menu-item>
           </router-link>
 
