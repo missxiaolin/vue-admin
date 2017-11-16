@@ -25,7 +25,10 @@ export default {
   computed: {
     ...mapGetters(["opened"]),
     isCollapse() {
-      return !this.opened
+      let that = this;
+      setTimeout(()=>{
+        return !that.opened
+      },200)
     }
   }
 };
