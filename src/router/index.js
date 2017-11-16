@@ -21,10 +21,27 @@ export const asyncRouterMap = [
     children: [
       {
         path: 'dashboard',
-        component: _import('dashboard/index'),
+        component: _import('dashboard/index')
+      }
+    ]
+  }, {
+    path: '/introduction',
+    component: layout,
+    redirect: '/introduction/index',
+    icon: 'icon-ren',
+    noDropdown: true,
+    children: [
+      {
+        path: 'index',
+        component: _import('introduction/index'),
+        name: '简述'
       }
     ]
   }
 ]
 
-export default new Router({mode: 'history', routes: asyncRouterMap})
+export default new Router({
+  mode: 'history',
+  scrollBehavior: () => ({y: 0}),
+  routes: asyncRouterMap
+})
