@@ -29,6 +29,7 @@ module.exports = {
       'base': resolve('src/base'),
       'store': resolve('src/store'),
       'router': resolve('src/router'),
+      'static': resolve('../static'),
     }
   },
   module: {

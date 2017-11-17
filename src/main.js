@@ -13,6 +13,9 @@ import router from './router'
 // vuex
 import store from './store'
 
+// 权限
+import './permission'
+
 Vue.use(ElementUI, { locale })
 
 Vue.use(VueLazyload, {
