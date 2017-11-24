@@ -4,45 +4,41 @@
               @click="handleDownload"
               :loading="downloadLoading">导出excel</el-button>
     <el-table :data="list" v-loading.body="listLoading" element-loading-text="拼命加载中" border fit highlight-current-row>
-      <el-table-column align="center" label='ID' width="95">
-        <template scope="scope">
-          {{scope.$index}}
-        </template>
+      <el-table-column
+        prop="shop_id"
+        label="ID"
+        width="95">
       </el-table-column>
-      <el-table-column label="门店名称">
-        <template scope="scope">
-          {{scope.row.shop_name}}
-        </template>
+      <el-table-column
+        prop="shop_name"
+        label="门店名称"
+        width="95">
       </el-table-column>
-      <el-table-column label="省份">
-        <template scope="scope">
-          {{scope.row.province}}
-        </template>
+      <el-table-column
+        prop="province"
+        label="省份"
+        width="95">
       </el-table-column>
-      <el-table-column label="城市">
-        <template scope="scope">
-          {{scope.row.city}}
-        </template>
+      <el-table-column
+        prop="city"
+        label="城市"
+        width="95">
       </el-table-column>
-      <el-table-column label="门店地址">
-        <template scope="scope">
-          {{scope.row.address}}
-        </template>
+      <el-table-column
+        prop="address"
+        label="门店地址">
       </el-table-column>
-      <el-table-column label="营业时间">
-        <template scope="scope">
-          {{scope.row.business_hours}}
-        </template>
+      <el-table-column
+        prop="business_hours"
+        label="营业时间">
       </el-table-column>
-      <el-table-column label="创建时间">
-        <template scope="scope">
-          {{scope.row.created_at}}
-        </template>
+      <el-table-column
+        prop="created_at"
+        label="创建时间">
       </el-table-column>
-      <el-table-column label="修改时间">
-        <template scope="scope">
-          {{scope.row.updated_at}}
-        </template>
+      <el-table-column
+        prop="updated_at"
+        label="修改时间">
       </el-table-column>
     </el-table>
   </div>
