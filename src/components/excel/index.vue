@@ -11,8 +11,7 @@
       </el-table-column>
       <el-table-column
         prop="shop_name"
-        label="门店名称"
-        width="95">
+        label="门店名称">
       </el-table-column>
       <el-table-column
         prop="province"
@@ -41,6 +40,17 @@
         label="修改时间">
       </el-table-column>
     </el-table>
+    <div class="page">
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="currentPage4"
+        :page-sizes="pageSizeList"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="totalCount">
+      </el-pagination>
+    </div>
   </div>
 </template>
 
@@ -58,7 +68,15 @@ export default {
     return {
       list: null,
       listLoading: true,
-      downloadLoading: false
+      downloadLoading: false,
+      currentPage4: 1,
+      pageSizeList: [20, 50, 100],
+      pageSize: 20,
+      totalCount: 0,
+      shopParams:{
+        page: 1,
+        per_page: 20
+      }
     };
   },
   created() {
@@ -84,15 +102,26 @@ export default {
     // 获取shop数据
     getShopList() {
       this.listLoading = true;
-      shopList().then(response => {
+      shopList(this.shopParams).then(response => {
         let shopData = response.data;
-        if (shopData.code == 0) {
-          this.list = response.data.data;
+        if (shopData.code == ERR_OK) {
+          this.list = response.data.data.item;
           this.listLoading = false;
+          this.totalCount = parseInt(response.data.data.totalCount);
         } else {
           Message(shopData.message);
         }
       });
+    },
+    // 显示个数
+    handleSizeChange(val) {
+      this.shopParams.per_page = val;
+      this.getShopList();
+    },
+    // 分页点击
+    handleCurrentChange(val) {
+      this.shopParams.page = val;
+      this.getShopList();
     }
   }
 };
