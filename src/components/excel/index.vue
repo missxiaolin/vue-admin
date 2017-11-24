@@ -11,6 +11,10 @@
 
 <script>
 import { shopList } from "@/api/shop";
+import { ERR_OK } from "@/api/config";
+
+import { Message } from 'element-ui'
+
 export default {
   data() {
     return {
@@ -26,10 +30,16 @@ export default {
     handleDownload() {},
     // 获取shop数据
     getShopList() {
-      this.listLoading = true
+      this.listLoading = true;
       shopList().then(response => {
-        this.list = response.data.data
-        this.listLoading = false
+        let shopData = response.data;
+        console.log(shopData);
+        if (shopData.code == 0) {
+          this.list = response.data.data;
+          this.listLoading = false;
+        } else {
+          Message(shopData.message)
+        }
       });
     }
   }
