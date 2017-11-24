@@ -1,17 +1,32 @@
 <template>
   <div class='tabs-view-container'>
-
+    <router-link class="tabs-view" v-for="tag in Array.from(visitedViews)" :to="tag.path" :key="tag.path">
+      <el-tag :closable="true" :type="isActive(tag.path)?'primary':''" @close='closeViewTabs(tag)'>
+        {{tag.name}}
+      </el-tag>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {},
+  computed: {
+    visitedViews() {
+      return this.$store.state.visitedViews.slice(-6);
+    }
+  },
   methods: {
     // 添加路由
     addViewTabs() {
       const route = this.generateRoute();
-      console.log(route);
+      if (!route) {
+        return false;
+      }
+      this.$store.dispatch("addVisitedViews", this.generateRoute());
+    },
+    // 删除路由
+    closeViewTabs(view) {
+      this.$store.dispatch('delVisitedViews', view)
     },
     // 获取route
     generateRoute() {
@@ -19,6 +34,10 @@ export default {
         return this.$route;
       }
       return false;
+    },
+    // 是否选中
+    isActive(path) {
+      return path === this.$route.path;
     }
   },
   watch: {
