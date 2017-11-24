@@ -50,6 +50,9 @@ import { ERR_OK } from "@/api/config";
 
 import { Message } from "element-ui";
 
+// 格式化数据
+import { formatJson } from "common/js/excel/util";
+
 export default {
   data() {
     return {
@@ -62,7 +65,22 @@ export default {
     this.getShopList();
   },
   methods: {
-    handleDownload() {},
+    // 导出excel
+    handleDownload() {
+      this.downloadLoading = true;
+      require.ensure([], () => {
+        const {
+          export_json_to_excel
+        } = require("common/js/excel/Export2Excel");
+        const tHeader = ["门店id", "门店名称"];
+        const filterVal = ["shop_id", "shop_name"];
+        const list = this.list;
+        const data = formatJson(filterVal, list);
+
+        export_json_to_excel(tHeader, data, "列表excel");
+        this.downloadLoading = false;
+      });
+    },
     // 获取shop数据
     getShopList() {
       this.listLoading = true;
