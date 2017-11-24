@@ -16,6 +16,7 @@ const matutaions = {
     if (state.visitedViews.some(v => v.path === view.path)) return
     state.visitedViews.push({ name: view.name, path: view.path })
   },
+  // 删除路由
   [types.DEL_VISITED_VIEWS] (state, view) {
     let index
     for (const [i, v] of state.visitedViews.entries()) {
