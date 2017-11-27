@@ -73,7 +73,7 @@ export default {
       pageSizeList: [20, 50, 100],
       pageSize: 20,
       totalCount: 0,
-      shopParams:{
+      shopParams: {
         page: 1,
         per_page: 20
       }
@@ -108,6 +108,9 @@ export default {
           this.list = response.data.data.item;
           this.listLoading = false;
           this.totalCount = parseInt(response.data.data.totalCount);
+          document.body.scrollTop = 0;
+          // 兼容
+          document.documentElement.scrollTop = 0;
         } else {
           Message(shopData.message);
         }
