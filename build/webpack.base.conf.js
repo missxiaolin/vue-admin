@@ -30,6 +30,7 @@ module.exports = {
       'store': resolve('src/store'),
       'router': resolve('src/router'),
       'static': resolve('../static'),
+      'api': resolve('src/api'),
     }
   },
   module: {
