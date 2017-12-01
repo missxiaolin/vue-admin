@@ -7,48 +7,69 @@ Vue.use(Router)
 /* layout */
 import layout from '@/components/layout/Layout'
 
-export const asyncRouterMap = [{
-  path: '/login',
-  name: 'login',
-  hidden: true,
-  component: _import('login/login') // 登录
-}, {
-  path: '/',
-  component: layout,
-  redirect: '/dashboard',
-  hidden: true,
-  children: [{
-    path: 'dashboard',
-    component: _import('dashboard/index')
-  }]
-}, {
-  path: '/introduction',
-  component: layout,
-  redirect: '/introduction/index',
-  icon: 'icon-ren',
-  noDropdown: true,
-  children: [{
-    path: 'index',
-    component: _import('introduction/index'),
-    name: '简述'
-  }]
-}, {
-  path: '/excel',
-  component: layout,
-  redirect: '/excel/download',
-  name: 'excel',
-  icon: 'icon-Excel',
-  children: [{
-    path: 'download',
-    component: _import('excel/index'),
-    name: 'excel导出'
-  }]
-}]
+export const asyncRouterMap = [
+  {
+    path: '/401',
+    component: _import('errorPage/401'),
+    hidden: true
+  },
+  {
+    path: '/404',
+    component: _import('errorPage/404'),
+    hidden: true
+  },
+  // 登录
+  {
+    path: '/login',
+    name: 'login',
+    hidden: true,
+    component: _import('login/login')
+  }, {
+    path: '/',
+    component: layout,
+    redirect: '/dashboard',
+    hidden: true,
+    children: [
+      {
+        path: 'dashboard',
+        component: _import('dashboard/index')
+      }
+    ]
+  }, {
+    path: '/introduction',
+    component: layout,
+    redirect: '/introduction/index',
+    icon: 'icon-ren',
+    noDropdown: true,
+    children: [
+      {
+        path: 'index',
+        component: _import('introduction/index'),
+        name: '简述'
+      }
+    ]
+  }, {
+    path: '/excel',
+    component: layout,
+    redirect: '/excel/download',
+    name: 'excel',
+    icon: 'icon-Excel',
+    children: [
+      {
+        path: 'download',
+        component: _import('excel/index'),
+        name: 'excel导出'
+      }
+    ]
+  }, {
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }
+]
 
 export default new Router({
   mode: 'history',
-  scrollBehavior: () => ({
-    y: 0
-  }),
+  scrollBehavior: () => ({y: 0}),
   routes: asyncRouterMap
 })
