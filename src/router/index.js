@@ -18,9 +18,8 @@ export const asyncRouterMap = [
     component: _import('errorPage/404'),
     hidden: true
   },
-  // 登录
   {
-    path: '/login',
+    path: '/login', // 登录
     name: 'login',
     hidden: true,
     component: _import('login/login')
