@@ -36,7 +36,7 @@ service.interceptors.response.use(
     if (res.code == error.ERROR_TOKEN_EXPIRE || res.code == error.ERROR_TOKEN_ILLEGAL) {
       routes.push({name: 'login'})
     } else if (res.code == error.ERROR_AUTHORITY) { // 权限
-
+      routes.push({name: '401'})
     }
     return response
   },
