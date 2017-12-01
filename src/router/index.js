@@ -9,6 +9,10 @@ import layout from '@/components/layout/Layout'
 
 export const asyncRouterMap = [
   {
+    path: '*',
+    redirect: '/404',
+    hidden: true
+  }, {
     path: '/error',
     name: '401',
     component: layout,
@@ -17,17 +21,15 @@ export const asyncRouterMap = [
     children: [
       {
         path: '401',
-        component: _import('errorPage/401'),
+        component: _import('errorPage/401')
       }
     ]
-  },
-  {
+  }, {
     path: '/404',
     name: '404',
     component: _import('errorPage/404'),
     hidden: true
-  },
-  {
+  }, {
     path: '/login', // 登录
     name: 'login',
     hidden: true,
@@ -69,10 +71,6 @@ export const asyncRouterMap = [
         name: 'excel导出'
       }
     ]
-  }, {
-    path: '*',
-    redirect: '/404',
-    hidden: true
   }
 ]
 
