@@ -32,8 +32,11 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
     let res = response.data
-    if(res.code == error.ERROR_TOKEN_EXPIRE || res.code == error.ERROR_TOKEN_ILLEGAL){
-      routes.push({'name':'login'})
+    // token
+    if (res.code == error.ERROR_TOKEN_EXPIRE || res.code == error.ERROR_TOKEN_ILLEGAL) {
+      routes.push({name: 'login'})
+    } else if (res.code == error.ERROR_AUTHORITY) { // 权限
+
     }
     return response
   },
