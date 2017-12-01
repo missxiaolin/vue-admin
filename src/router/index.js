@@ -9,10 +9,17 @@ import layout from '@/components/layout/Layout'
 
 export const asyncRouterMap = [
   {
-    path: '/401',
+    path: '/error',
     name: '401',
-    component: _import('errorPage/401'),
-    hidden: true
+    component: layout,
+    redirect: '/error/401',
+    hidden: true,
+    children: [
+      {
+        path: '401',
+        component: _import('errorPage/401'),
+      }
+    ]
   },
   {
     path: '/404',
