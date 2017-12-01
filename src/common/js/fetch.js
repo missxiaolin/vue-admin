@@ -2,6 +2,8 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from 'common/js/cache'
+import * as error from 'api/config'
+import routes from '@/router'
 
 // 创建axios实例
 const service = axios.create({
@@ -29,6 +31,10 @@ service.interceptors.request.use(config => {
 // respone拦截器
 service.interceptors.response.use(
   response => {
+    let res = response.data
+    if(res.code == error.ERROR_TOKEN_EXPIRE || res.code == error.ERROR_TOKEN_ILLEGAL){
+      routes.push({'name':'login'})
+    }
     return response
   },
   error => {

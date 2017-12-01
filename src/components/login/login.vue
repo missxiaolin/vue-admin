@@ -62,13 +62,13 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
+          this.loading = true;
           login(this.loginForm).then(response => {
             let userData = response.data;
             if (userData.code == ERR_OK) {
               setToken(userData.data.token);
-              this.$router.push({ path: '/' })
-              this.loading = false
+              this.$router.push({ path: "/" });
+              this.loading = false;
             } else {
               Message(userData.message);
             }
