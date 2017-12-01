@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { Message } from 'element-ui'
-import store from '@/store'
+import { Message, MessageBox } from 'element-ui'
 import { getToken } from 'common/js/cache'
 import * as error from 'api/config'
 import routes from '@/router'
@@ -33,8 +32,21 @@ service.interceptors.response.use(
   response => {
     let res = response.data
     // token
+    if (res.code != 0) {
+      Message({
+        message: res.message,
+        type: 'error',
+        duration: 5 * 1000
+      })
+    }
     if (res.code == error.ERROR_TOKEN_EXPIRE || res.code == error.ERROR_TOKEN_ILLEGAL) {
-      routes.push({name: 'login'})
+      MessageBox.confirm('你已被登出，可以取消继续留在该页面，或者重新登录', '提示', { // token过期情况
+        confirmButtonText: '重新登录',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        routes.push({name: 'login'})
+      })
     } else if (res.code == error.ERROR_AUTHORITY) { // 权限
       routes.push({name: '401'})
     }
