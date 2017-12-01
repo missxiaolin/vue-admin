@@ -29,3 +29,43 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 # vue-admin
+
+```
+build/						配置文件
+config/						配置文件
+dist						打包目录
+src							
+	api						api
+	assets					资源文件
+	common					资源文件
+			css
+			font
+			image
+			js
+	components				view
+	route					路由
+	store					vuex配置
+static
+test
+```
+
+### 接口返回参数定义
+
+~~~
+{
+	"data": []
+	"code": 0,
+	"message": "",
+	"time": "1512112715",
+	"_ut": "0.02982"
+}
+~~~
+
+~~~
+{
+	"code": 1000,
+	"message": "token非法",
+	"time": "1512112715",
+	"_ut": "0.02982"
+}
+~~~
