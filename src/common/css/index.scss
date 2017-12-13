@@ -1,7 +1,8 @@
-@import './element-ui.scss';
 @import './mixin.scss';
-@import './sidebar.scss';
 @import './btn.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -269,9 +270,4 @@ code {
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out
   }
-}
-
-.page{
-  float: right;
-  padding: 20px 20px;
 }

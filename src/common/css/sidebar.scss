@@ -4,7 +4,7 @@
   min-height: 100%;
 }
 
-.sidebar-container .iconfont {
+.sidebar-container .svg-icon {
   margin-right: 16px;
 }
 
@@ -39,7 +39,7 @@
 .hideSidebar .menu-wrapper>.el-menu-item,
 .hideSidebar .submenu-title-noDropdown,
 .hideSidebar .menu-wrapper>.el-submenu .el-submenu__title {
-  text-align: left;
+  text-align: center;
 }
 
 .hideSidebar .el-menu-item .el-submenu__icon-arrow,
