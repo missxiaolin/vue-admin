@@ -18,7 +18,7 @@
 
           <router-link v-else :to="item.path+'/'+child.path">
             <el-menu-item :index="item.path+'/'+child.path">
-              <i v-if='child.icon' :class="item.icon" class="iconfont"></i><span>{{child.name}}</span>
+              <i v-if='child.icon' :class="child.icon" class="iconfont"></i><span>{{child.name}}</span>
             </el-menu-item>
           </router-link>
 
