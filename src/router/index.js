@@ -64,7 +64,7 @@ export const asyncRouterMap = [
     redirect: '/excel/download',
     name: 'excel',
     icon: 'icon-Excel',
-    noDropdown: true,
+    noDropdown: false,
     children: [
       {
         path: 'download',
