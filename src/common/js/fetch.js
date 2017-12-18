@@ -3,6 +3,7 @@ import { Message, MessageBox } from 'element-ui'
 import { getToken } from 'common/js/cache'
 import * as error from 'api/config'
 import routes from '@/router'
+import Qs from 'qs'
 
 // 创建axios实例
 const service = axios.create({
@@ -12,6 +13,9 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
+  if (config.method === 'post') {
+    config.data = Qs.stringify(config.data);
+  }
   // Do something before request is sent
   let token = getToken()
   if (token) {
