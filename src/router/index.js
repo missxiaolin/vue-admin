@@ -5,7 +5,7 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
 
 /* layout */
-import layout from '@/components/layout/Layout'
+import layout from '@/view/layout/Layout'
 
 export const asyncRouterMap = [
   {
