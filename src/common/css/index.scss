@@ -248,6 +248,15 @@ code {
   animation: octocat-wave 560ms ease-in-out
 }
 
+.page{
+  float: right;
+  margin: 20px 0px;
+}
+
+.iconfont{
+  margin-right: 5px;
+}
+
 @keyframes octocat-wave {
   0%,
   100% {
