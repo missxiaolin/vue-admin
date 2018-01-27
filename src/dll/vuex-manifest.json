@@ -1,0 +1,1 @@
+{"name":"vuex","content":{"./node_modules/.0.11.10@process/browser.js":{"id":1,"meta":{}},"./node_modules/.2.5.0@vuex/dist/vuex.esm.js":{"id":156,"meta":{"harmonyModule":true},"exports":["Store","install","mapState","mapMutations","mapGetters","mapActions","createNamespacedHelpers","default"]}}}
