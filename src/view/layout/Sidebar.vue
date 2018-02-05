@@ -5,40 +5,40 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import SidebarItem from "./SidebarItem";
-import { asyncRouterMap } from "router";
+import { mapGetters } from 'vuex'
+import SidebarItem from './SidebarItem'
+import { asyncRouterMap } from 'router'
 
 export default {
-  data() {
+  data () {
     return {
       permission_routers: [],
       isOpened: true
-    };
+    }
   },
-  created() {
-    this.permission_routers = asyncRouterMap;
+  created () {
+    this.permission_routers = asyncRouterMap
     this.isOpened = this.opened
   },
   components: {
     SidebarItem
   },
   methods: {
-    isCollapse() {
-      let that = this;
-      setTimeout(()=>{
+    isCollapse () {
+      let that = this
+      setTimeout(() => {
         that.isOpened = !this.opened
-      },200)
+      }, 200)
     }
   },
   computed: {
-    ...mapGetters(["opened"]),
+    ...mapGetters(['opened'])
 
   },
-  watch:{
-    opened(){
-      this.isCollapse();
+  watch: {
+    opened () {
+      this.isCollapse()
     }
   }
-};
+}
 </script>

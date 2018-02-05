@@ -32,13 +32,13 @@
 
 <script>
 export default {
-  name: "SidebarItem",
+  name: 'SidebarItem',
   props: {
     routes: {
       type: Array
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

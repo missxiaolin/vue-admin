@@ -21,65 +21,65 @@
 
 
 <script>
-import { isvalidUsername } from "common/js/validate";
-import { login } from "api/auth";
-import { ERR_OK } from "@/api/config";
-import { setToken } from "common/js/cache";
-import { Message } from "element-ui";
+import { isvalidUsername } from 'common/js/validate'
+import { login } from 'api/auth'
+import { ERR_OK } from '@/api/config'
+import { setToken } from 'common/js/cache'
+import { Message } from 'element-ui'
 
 export default {
-  name: "login",
-  data() {
+  name: 'login',
+  data () {
     const validateUsername = (rule, value, callback) => {
       if (!value) {
-        callback(new Error("请输入正确的用户名"));
+        callback(new Error('请输入正确的用户名'))
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     const validatePass = (rule, value, callback) => {
       if (value.length < 5) {
-        callback(new Error("密码不能小于5位"));
+        callback(new Error('密码不能小于5位'))
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     return {
       loginForm: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [
-          { required: true, trigger: "blur", validator: validateUsername }
+          { required: true, trigger: 'blur', validator: validateUsername }
         ],
-        password: [{ required: true, trigger: "blur", validator: validatePass }]
+        password: [{ required: true, trigger: 'blur', validator: validatePass }]
       },
       loading: false
-    };
+    }
   },
   methods: {
-    handleLogin() {
+    handleLogin () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
           login(this.loginForm).then(response => {
-            let userData = response.data;
+            let userData = response.data
             if (userData.code == ERR_OK) {
-              setToken(userData.data.token);
-              this.$router.push({ path: "/" });
-              this.loading = false;
+              setToken(userData.data.token)
+              this.$router.push({ path: '/' })
+              this.loading = false
             } else {
-              Message(userData.message);
+              Message(userData.message)
             }
-          });
+          })
         } else {
-          return false;
+          return false
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 
 <style lang="scss" rel="stylesheet/scss">

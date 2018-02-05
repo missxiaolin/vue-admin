@@ -23,7 +23,7 @@ import Github from 'base/Github'
 export default {
   name: 'dashboard-editor',
   components: { PanThumb, Github},
-  data() {
+  data () {
     return {
       avatar: 'http://oni42o7kl.bkt.clouddn.com/tx.gif'
     }

@@ -24,25 +24,25 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import Hamburger from "base/Hamburger";
-import Levelbar from "./Levelbar";
-import TabsView from "./TabsView";
-import Screenfull from "base/Screenfull";
+import { mapGetters } from 'vuex'
+import Hamburger from 'base/Hamburger'
+import Levelbar from './Levelbar'
+import TabsView from './TabsView'
+import Screenfull from 'base/Screenfull'
 
 export default {
-  data() {
-    return {};
+  data () {
+    return {}
   },
   computed: {
-    ...mapGetters(["opened"])
+    ...mapGetters(['opened'])
   },
   methods: {
-    toggleSideBar() {
+    toggleSideBar () {
       this.$store.dispatch('ToggleSideBar')
     },
     // 退出登录操作
-    logout() {}
+    logout () {}
   },
   components: {
     Hamburger,
@@ -50,7 +50,7 @@ export default {
     TabsView,
     Screenfull
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

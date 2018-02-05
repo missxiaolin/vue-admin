@@ -55,16 +55,16 @@
 </template>
 
 <script>
-import { shopList } from "@/api/shop";
-import { ERR_OK } from "@/api/config";
+import { shopList } from '@/api/shop'
+import { ERR_OK } from '@/api/config'
 
-import { Message } from "element-ui";
+import { Message } from 'element-ui'
 
 // 格式化数据
-import { formatJson } from "common/js/excel/util";
+import { formatJson } from 'common/js/excel/util'
 
 export default {
-  data() {
+  data () {
     return {
       list: null,
       listLoading: true,
@@ -77,55 +77,55 @@ export default {
         page: 1,
         per_page: 20
       }
-    };
+    }
   },
-  created() {
-    this.getShopList();
+  created () {
+    this.getShopList()
   },
   methods: {
     // 导出excel
-    handleDownload() {
-      this.downloadLoading = true;
+    handleDownload () {
+      this.downloadLoading = true
       require.ensure([], () => {
         const {
           export_json_to_excel
-        } = require("common/js/excel/Export2Excel");
-        const tHeader = ["门店id", "门店名称"];
-        const filterVal = ["shop_id", "shop_name"];
-        const list = this.list;
-        const data = formatJson(filterVal, list);
+        } = require('common/js/excel/Export2Excel')
+        const tHeader = ['门店id', '门店名称']
+        const filterVal = ['shop_id', 'shop_name']
+        const list = this.list
+        const data = formatJson(filterVal, list)
 
-        export_json_to_excel(tHeader, data, "列表excel");
-        this.downloadLoading = false;
-      });
+        export_json_to_excel(tHeader, data, '列表excel')
+        this.downloadLoading = false
+      })
     },
     // 获取shop数据
-    getShopList() {
-      this.listLoading = true;
+    getShopList () {
+      this.listLoading = true
       shopList(this.shopParams).then(response => {
-        let shopData = response.data;
+        let shopData = response.data
         if (shopData.code == ERR_OK) {
-          this.list = response.data.data.item;
-          this.listLoading = false;
-          this.totalCount = parseInt(response.data.data.totalCount);
-          document.body.scrollTop = 0;
+          this.list = response.data.data.item
+          this.listLoading = false
+          this.totalCount = parseInt(response.data.data.totalCount)
+          document.body.scrollTop = 0
           // 兼容
-          document.documentElement.scrollTop = 0;
+          document.documentElement.scrollTop = 0
         } else {
-          Message(shopData.message);
+          Message(shopData.message)
         }
-      });
+      })
     },
     // 显示个数
-    handleSizeChange(val) {
-      this.shopParams.per_page = val;
-      this.getShopList();
+    handleSizeChange (val) {
+      this.shopParams.per_page = val
+      this.getShopList()
     },
     // 分页点击
-    handleCurrentChange(val) {
-      this.shopParams.page = val;
-      this.getShopList();
+    handleCurrentChange (val) {
+      this.shopParams.page = val
+      this.getShopList()
     }
   }
-};
+}
 </script>

@@ -26,28 +26,28 @@
 </template>
 
 <script>
-import errGif from "common/image/401.gif";
+import errGif from 'common/image/401.gif'
 
 export default {
-  data() {
+  data () {
     return {
-      errGif: errGif + "?" + +new Date(),
+      errGif: errGif + '?' + +new Date(),
       ewizardClap:
-        "https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646",
+        'https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646',
       dialogVisible: false
-    };
+    }
   },
   methods: {
     // 返回
-    back() {
+    back () {
       if (!this.$route.query.noGoBack) {
-        this.$router.push({ path: "/dashboard" });
+        this.$router.push({ path: '/dashboard' })
       } else {
-        this.$router.go(-1);
+        this.$router.go(-1)
       }
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

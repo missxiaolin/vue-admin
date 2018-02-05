@@ -18,22 +18,22 @@
 </template>
 
 <script>
-import img_404 from "common/image/404.png";
-import img_404_cloud from "common/image/404_cloud.png";
+import img_404 from 'common/image/404.png';
+import img_404_cloud from 'common/image/404_cloud.png';
 
 export default {
-  data() {
+  data () {
     return {
       img_404,
       img_404_cloud
-    };
+    }
   },
   computed: {
-    message() {
-      return "这个页面你不能进......";
+    message () {
+      return '这个页面你不能进......';
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

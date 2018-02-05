@@ -14,7 +14,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   if (config.method === 'post') {
-    config.data = Qs.stringify(config.data);
+    config.data = Qs.stringify(config.data)
   }
   // Do something before request is sent
   let token = getToken()

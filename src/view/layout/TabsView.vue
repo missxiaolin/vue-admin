@@ -11,42 +11,42 @@
 <script>
 export default {
   computed: {
-    visitedViews() {
-      return this.$store.state.visitedViews.slice(-6);
+    visitedViews () {
+      return this.$store.state.visitedViews.slice(-6)
     }
   },
   methods: {
     // 添加路由
-    addViewTabs() {
-      const route = this.generateRoute();
+    addViewTabs () {
+      const route = this.generateRoute()
       if (!route) {
-        return false;
+        return false
       }
-      this.$store.dispatch("addVisitedViews", this.generateRoute());
+      this.$store.dispatch('addVisitedViews', this.generateRoute())
     },
     // 删除路由
-    closeViewTabs(view,$event) {
+    closeViewTabs (view, $event) {
       this.$store.dispatch('delVisitedViews', view)
       $event.preventDefault()
     },
     // 获取route
-    generateRoute() {
+    generateRoute () {
       if (this.$route.name) {
-        return this.$route;
+        return this.$route
       }
-      return false;
+      return false
     },
     // 是否选中
-    isActive(path) {
-      return path === this.$route.path;
+    isActive (path) {
+      return path === this.$route.path
     }
   },
   watch: {
-    $route() {
-      this.addViewTabs();
+    $route () {
+      this.addViewTabs()
     }
   }
-};
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
