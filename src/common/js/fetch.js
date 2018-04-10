@@ -54,7 +54,7 @@ service.interceptors.response.use(
     } else if (res.code == error.ERROR_AUTHORITY) { // 权限
       routes.push({name: '401'})
     }
-    return response
+    return Promise.resolve(response)
   },
   error => {
     console.log('err' + error)// for debug
