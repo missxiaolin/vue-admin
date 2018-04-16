@@ -13,7 +13,7 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
-  if (config.method === 'post') {
+  if (config.method === 'post' && typeof config.data === 'string') {
     config.data = Qs.stringify(config.data)
   }
   // Do something before request is sent
