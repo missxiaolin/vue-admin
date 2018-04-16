@@ -24,7 +24,7 @@ service.interceptors.request.use(config => {
 
   // config.headers['Content-Type'] = 'application/json'
   // config.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
-  config.headers['Content-Type'] = 'multipart/form-data'
+  // config.headers['Content-Type'] = 'multipart/form-data'
   return config
 }, error => {
   // Do something with request error
