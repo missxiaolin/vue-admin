@@ -69,3 +69,8 @@ test
 	"_ut": "0.02982"
 }
 ~~~
+
+### vue各种自定义组件库
+
+- [组件提取库](https://github.com/missxiaolin/vue-assembly)
+- [组件](https://github.com/missxiaolin/vue-admin-base)
