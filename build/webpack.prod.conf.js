@@ -28,25 +28,25 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    new webpack.DllReferencePlugin({
-      manifest: require('../src/dll/ui-manifest.json')
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('../src/dll/ui-manifest.json')
+    // }),
 
-    new webpack.DllReferencePlugin({
-      manifest: require('../src/dll/vue-manifest.json')
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('../src/dll/vue-manifest.json')
+    // }),
 
-    new webpack.DllReferencePlugin({
-      manifest: require('../src/dll/axios-manifest.json')
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('../src/dll/axios-manifest.json')
+    // }),
 
-    new webpack.DllReferencePlugin({
-      manifest: require('../src/dll/vuex-manifest.json')
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('../src/dll/vuex-manifest.json')
+    // }),
 
-    new webpack.DllReferencePlugin({
-      manifest: require('../src/dll/xlsx-manifest.json')
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest: require('../src/dll/xlsx-manifest.json')
+    // }),
 
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
