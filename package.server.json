@@ -1,0 +1,20 @@
+{
+    "name": "xl-admin",
+    "version": "1.0.0",
+    "description": "web",
+    "author": "xiaolin <462441355@qq.com>",
+    "private": true,
+    "scripts": {
+    },
+    "dependencies": {
+      "dotenv": "^8.0.0",
+      "static-web-proxy": "^1.2.2"
+    },
+    "devDependencies": {
+    },
+    "engines": {
+      "node": ">= 4.0.0",
+      "npm": ">= 3.0.0"
+    }
+  }
+  
